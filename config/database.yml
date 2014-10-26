@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: yelpdemo_development
+
+test:
+  <<: *default
+  database: yelpdemo_test
+
+production:
+  <<: *default
+  database: yelpdemo_production
+  username: yelpdemo
+  password: <%= ENV['YELPDEMO_DATABASE_PASSWORD'] %>
